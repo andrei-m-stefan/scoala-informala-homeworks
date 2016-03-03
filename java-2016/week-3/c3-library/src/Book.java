@@ -3,8 +3,8 @@ import java.io.Serializable;
 
 public class Book implements Serializable
 {	
-	private String title;
-	private int pageNr;
+	public String title;
+	public int pageNr;
 	
 	public Book()
 	{
@@ -18,8 +18,8 @@ public class Book implements Serializable
 		this.pageNr = pageNr;
 	}
 	
-	@Override
-	public String toString(){
+	public String toString()
+	{
 		return "\nTitle: " + title + "\nNumber of pages: " + pageNr;
 	}
 

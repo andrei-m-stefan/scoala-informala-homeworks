@@ -4,20 +4,24 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class Library extends Object implements Serializable {
+public class Library implements Serializable
+	{
 	
 	private List<Book> collection;
 
-	public Library(){
+	public Library()
+	{
 		collection = new ArrayList<Book>();
 	}
 	
-	public void addBook(Book book){
+	public void addBook(Book book)
+	{
 		collection.add(book);
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		String total = "\n";
 		/*
 		for (int i=0; i<collection.size(); i++){
@@ -27,7 +31,8 @@ public class Library extends Object implements Serializable {
 		}
 		*/
 		Iterator<Book> i = collection.iterator();
-		while(i.hasNext()){
+		while(i.hasNext())
+		{
 			Book b = (Book) i.next();
 			total = total + b.toString();
 		}
