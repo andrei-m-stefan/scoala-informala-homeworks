@@ -1,3 +1,5 @@
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+
 
 public class MainClass
  {
@@ -21,7 +24,6 @@ public class MainClass
 	public static void main(String[] args) 
 	{
 		
-		//System.out.println("\n^*^*^*^*^*^*^* LIBRARY  CATALOG ^*^*^*^*^*^*^");
 		while (running) 
 		{
 			System.out.println("\n ^*^*^*^*^*^*^* LIBRARY  CATALOG ^*^*^*^*^*^*^");
@@ -34,24 +36,24 @@ public class MainClass
 			int answer = in.nextInt();
 			if(answer == 0 || answer > 6)
 			{
-				System.out.println("\n>The entered option does not exist!");
+				System.out.println("\n\tThe entered option does not exist!!");
 			}
 				
 			switch (answer)
 			{
 			case 1:
-				System.out.println(">Enter the file name to load");
+				System.out.println("\n>Enter the name of the library you want to load.");
 				loadScript(in.next());
 				break;
 			case 2:
 				verify();
 				break;
 			case 3:
-				System.out.println("\tListing all books...");
+				System.out.println("\n\tListing all books...");
 				System.out.println(lib.toString());
 				break;
 			case 4:
-				//
+				delete();
 				break;
 			case 5:
 				saveAndQuit();
@@ -72,10 +74,10 @@ public class MainClass
 		String type;
 		String paperQ;
 		
-		System.out.println("\n\tEnter 1 to add a novel" + "\n\tEnter 2 to add an album.");
+		System.out.println("\n\tEnter 1 to add a novel." + "\n\tEnter 2 to add an album.");
 		int answer = in.nextInt();
 		
-		System.out.println("\n>Enter Title: ");
+		System.out.println("\n>Enter title: ");
 		
 		in.useDelimiter(Pattern.compile("[\\r\\n]+"));
 		title = in.next();
@@ -105,12 +107,26 @@ public class MainClass
 
 				break;
 			}
+		System.out.println("\n\tBook added.");
+	}
+	
+	private static void delete()
+	{	
+		String title = null;
 		
+		System.out.println("\n>Enter title of the book you want deleted: ");
+		
+		in.useDelimiter(Pattern.compile("[\\r\\n]+"));
+		title = in.next();
+		
+		lib.removeBook(title);
+		
+		System.out.println("\n\tBook " + title + " was deleted from the library.");	
 	}
 
 	private static void saveAndQuit()
 	{
-		System.out.println(">Enter file name: ");
+		System.out.println("\n>Enter file name: ");
 		fileName = in.next() + ".ser";
 		running = false;
 		FileOutputStream fos = null;
@@ -158,17 +174,12 @@ public class MainClass
 			{
 				e.printStackTrace();
 			}
-
+		System.out.println("\n\tFile loaded.");
 		}
 		else
 		{
-			System.out.println("\n>The file does not exist!");
+			System.out.println("\n\tThe file does not exist!");
 		}
-	}
-	
-	private static void deleteBook()
-	{
-		//????//
 	}
 
 }

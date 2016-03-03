@@ -1,3 +1,5 @@
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,6 +19,25 @@ public class Library implements Serializable
 	public void addBook(Book book)
 	{
 		collection.add(book);
+	}
+	
+	public boolean removeBook(String title)
+	{
+		for(int i = 0; i < collection.size(); i++)
+		{
+			Book currBook = collection.get(i);
+			String currBookTitle = currBook.getTitle();
+			
+			if(currBookTitle.equals(title))
+			{
+				collection.remove(i);
+				i--;
+				
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	@Override

@@ -1,5 +1,7 @@
 
 
+
+
 public class Album extends Book
 {
 	public String paperQ;
@@ -17,7 +19,7 @@ public class Album extends Book
 	@Override
 	public String toString()
 	{
-		return "\n>Title: " + super.title + "\n>Number of pages: " + super.pageNr + "\n>Paper Quality: " + paperQ;
+		return "\n>>TITLE: " + super.title + "\n>Number of pages: " + super.pageNr + "\n>Paper Quality: " + paperQ;
 	}
 	
 }

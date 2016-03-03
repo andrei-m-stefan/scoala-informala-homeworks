@@ -1,5 +1,7 @@
 
 
+
+
 public class Novel extends Book
 {
 	public String type;
@@ -17,7 +19,7 @@ public class Novel extends Book
 	@Override
 	public String toString()
 	{
-		return "\n>Title: " + super.title + "\n>Number of pages: " + super.pageNr+ "\n>Genre: " + type;
+		return "\n>>TITLE: " + super.title + "\n>Number of pages: " + super.pageNr+ "\n>Genre: " + type;
 	}
 	
 }
