@@ -17,7 +17,7 @@ public class Novel extends Book
 	@Override
 	public String toString()
 	{
-		return "\nTitle: " + super.title + "\nNumber of pages: " + super.pageNr+ "\nGenre: " + type;
+		return "\n>Title: " + super.title + "\n>Number of pages: " + super.pageNr+ "\n>Genre: " + type;
 	}
 	
 }

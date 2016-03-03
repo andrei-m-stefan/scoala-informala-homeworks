@@ -20,7 +20,7 @@ public class Book implements Serializable
 	
 	public String toString()
 	{
-		return "\nTitle: " + title + "\nNumber of pages: " + pageNr;
+		return "\n>Title: " + title + "\n>Number of pages: " + pageNr;
 	}
 
 }

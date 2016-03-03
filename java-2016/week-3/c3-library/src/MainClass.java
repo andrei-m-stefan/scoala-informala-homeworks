@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class MainClass
  {
@@ -20,26 +21,33 @@ public class MainClass
 	public static void main(String[] args) 
 	{
 		
-		System.out.println("\n\t\t^*^*^*^*^*^*^* LIBRARY  CATALOG ^*^*^*^*^*^*^");
+		//System.out.println("\n^*^*^*^*^*^*^* LIBRARY  CATALOG ^*^*^*^*^*^*^");
 		while (running) 
 		{
+			System.out.println("\n ^*^*^*^*^*^*^* LIBRARY  CATALOG ^*^*^*^*^*^*^");
 			System.out.println("\n\tEnter 1 to load a library."
-					+ "\n\tEnter 2 to add a book to library"
-					+ "\n\tEnter 3 to list all books in library"
-					+ "\n\tEnter 4 to delete a book from library"
-					+ "\n\tEnter 5 to save and quit"
-					+ "\n\tEnter 6 to quit without saving");
+					+ "\n\tEnter 2 to add a book to a library."
+					+ "\n\tEnter 3 to list all books in a library."
+					+ "\n\tEnter 4 to delete a book from a library."
+					+ "\n\tEnter 5 to save and quit."
+					+ "\n\tEnter 6 to quit without saving.");
 			int answer = in.nextInt();
+			if(answer == 0 || answer > 6)
+			{
+				System.out.println("\n>The entered option does not exist!");
+			}
+				
 			switch (answer)
 			{
 			case 1:
-				System.out.println("Enter the file name to load");
+				System.out.println(">Enter the file name to load");
 				loadScript(in.next());
 				break;
 			case 2:
 				verify();
 				break;
 			case 3:
+				System.out.println("\tListing all books...");
 				System.out.println(lib.toString());
 				break;
 			case 4:
@@ -49,7 +57,7 @@ public class MainClass
 				saveAndQuit();
 				break;
 			case 6:
-				System.out.println("\n\tLibrary Catalog Terminated!!! ");
+				System.out.println("\n      *^* LIBRARY CATALOG TERMINATED!!! *^*");
 				System.exit(0);
 			}
 		}
@@ -59,25 +67,27 @@ public class MainClass
 	
 	private static void verify()
 	{
-		String title;
+		String title = null;
 		int pageNr;
 		String type;
 		String paperQ;
 		
-		System.out.println("\nEnter 1 for novel & 2 for album.");
+		System.out.println("\n\tEnter 1 to add a novel" + "\n\tEnter 2 to add an album.");
 		int answer = in.nextInt();
 		
-		System.out.println("\nEnter Title: ");
+		System.out.println("\n>Enter Title: ");
+		
+		in.useDelimiter(Pattern.compile("[\\r\\n]+"));
 		title = in.next();
-
-		System.out.println("\nEnter number of pages: ");
+		
+		System.out.println("\n>Enter number of pages: ");
 		pageNr = in.nextInt();
 		
 		switch (answer)
 			{
 			case 1:
 				
-				System.out.println("\nEnter genre: ");
+				System.out.println("\n>Enter genre: ");
 				type = in.next();
 	
 				Novel n = new Novel(title, pageNr, type);
@@ -87,7 +97,7 @@ public class MainClass
 			
 			case 2:
 				
-				System.out.println("\nEnter paper quality: ");
+				System.out.println("\n>Enter paper quality: ");
 				paperQ = in.next();
 	
 				Album a = new Album(title, pageNr, paperQ);
@@ -100,7 +110,7 @@ public class MainClass
 
 	private static void saveAndQuit()
 	{
-		System.out.println("Enter file name: ");
+		System.out.println(">Enter file name: ");
 		fileName = in.next() + ".ser";
 		running = false;
 		FileOutputStream fos = null;
@@ -152,7 +162,7 @@ public class MainClass
 		}
 		else
 		{
-			System.out.println("\nThe file does not exist!");
+			System.out.println("\n>The file does not exist!");
 		}
 	}
 	
