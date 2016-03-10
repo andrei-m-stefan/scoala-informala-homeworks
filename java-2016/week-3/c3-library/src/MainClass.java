@@ -1,5 +1,3 @@
-
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,6 +18,7 @@ public class MainClass
 	static Boolean running = true;
 	static Album album = new Album();
 	static Novel novel = new Novel();
+	
 
 	public static void main(String[] args) 
 	{
@@ -43,7 +42,7 @@ public class MainClass
 			{
 			case 1:
 				System.out.println("\n>Enter the name of the library you want to load.");
-				loadScript(in.next());
+				loadFile(in.next());
 				break;
 			case 2:
 				verify();
@@ -150,7 +149,7 @@ public class MainClass
 
 	}
 
-	private static void loadScript(String name) 
+	private static void loadFile(String name) 
 	{
 		FileInputStream fis = null;
 		ObjectInputStream in = null;

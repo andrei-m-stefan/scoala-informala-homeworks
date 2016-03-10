@@ -1,7 +1,5 @@
 
 
-
-
 public class Novel extends Book
 {
 	public String type;

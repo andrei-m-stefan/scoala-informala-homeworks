@@ -1,5 +1,3 @@
-
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -44,13 +42,7 @@ public class Library implements Serializable
 	public String toString() 
 	{
 		String total = "\n";
-		/*
-		for (int i=0; i<collection.size(); i++){
-			Book b = collection.get(i);
-			total = total + b.toString();
-			
-		}
-		*/
+
 		Iterator<Book> i = collection.iterator();
 		while(i.hasNext())
 		{

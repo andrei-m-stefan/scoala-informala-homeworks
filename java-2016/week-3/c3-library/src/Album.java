@@ -1,7 +1,5 @@
 
 
-
-
 public class Album extends Book
 {
 	public String paperQ;
