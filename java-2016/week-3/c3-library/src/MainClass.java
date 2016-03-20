@@ -12,10 +12,12 @@ import java.util.regex.Pattern;
 public class MainClass
  {
 
+    // TODO - CODE REVIEW - WHY do you need all these static objects?! Please revise what static means.
 	static String fileName = null;
 	static Library lib = new Library();
 	static Scanner in = new Scanner(System.in);
 	static Boolean running = true;
+    // TODO - CODE REVIEW -Where do use these objects?
 	static Album album = new Album();
 	static Novel novel = new Novel();
 	
@@ -45,6 +47,7 @@ public class MainClass
 				loadFile(in.next());
 				break;
 			case 2:
+                    // TODO - CODE REVIEW -if you are adding a book, the moethod should not be called verify. It should be addBook()
 				verify();
 				break;
 			case 3:
@@ -162,6 +165,9 @@ public class MainClass
 				in = new ObjectInputStream(fis);
 				lib = (Library) in.readObject();
 				fis.close();
+                /* TODO - CODE REVIEW -Streams should be closed in a finally block.
+                If you already went as far to use streams (which was not the scope the homework) please do a proper job.
+                */
 				in.close();
 
 			} 
