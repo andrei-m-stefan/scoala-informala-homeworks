@@ -8,7 +8,7 @@ package ro.sci.BookStore;
  *
  */
 public class Customer {
-
+	//make these private
 	String name;
 	String address;
 	String eMail;

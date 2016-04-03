@@ -11,7 +11,8 @@ import org.junit.Test;
 
 public class TestCart {
 
-	Book book = new Book();
+	// added param to constructor so that it doesn't fail ;)
+	Book book = new Book(122);
 	List<CartEntry> cart = null;
 
 	@Before
@@ -24,6 +25,7 @@ public class TestCart {
 	}
 	
 	private CartEntry createNewCart(Book book, int qty) {
+		//unfinished ?
 		return null;
 	}
 

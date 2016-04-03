@@ -1,7 +1,7 @@
 package ro.sci.BookStore;
 
 public class Stock {
-	
+	//make these private
 	Book book;
 	int qty;
 	

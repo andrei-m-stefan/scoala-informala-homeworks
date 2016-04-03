@@ -8,7 +8,7 @@ package ro.sci.BookStore;
  *
  */
 public class CartEntry {
-
+// make these private
 	Book book;
 	int qty;
 	

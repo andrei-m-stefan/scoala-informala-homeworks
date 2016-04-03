@@ -2,6 +2,7 @@ package ro.sci.BookStore;
 
 public class Address {
 
+	//make these private
 	String street;
 	int nr;
 	String city;

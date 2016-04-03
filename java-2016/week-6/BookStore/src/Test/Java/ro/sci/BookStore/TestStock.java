@@ -11,7 +11,8 @@ import org.junit.Test;
 
 public class TestStock {
 
-	Book book = new Book();
+	//added param to constructor so that it doesn't fail ;)
+	Book book = new Book(232);
 	List<Book> stock = null;
 
 	@Before
