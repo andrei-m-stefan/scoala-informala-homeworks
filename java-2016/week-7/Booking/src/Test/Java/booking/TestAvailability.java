@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class TestAvailability {
 
-	List<Accommodation> rooms;
+	List<Accommodation> accomodation;
 
 	List<BookingPeriod> periods;
 
@@ -20,7 +20,7 @@ public class TestAvailability {
 
 	@Before
 	public void init() {
-		rooms = new ArrayList<Accommodation>();
+		accomodation = new ArrayList<Accommodation>();
 
 		Date from = getDate(2016, 5, 1);
 		Date to = getDate(2016, 8, 27);
@@ -28,7 +28,7 @@ public class TestAvailability {
 
 		RoomFair roomFair1 = createRoomFair(100, season);
 		Accommodation room1 = createNewRoom(AccommodationType.ROYAL, roomFair1);
-		rooms.add(room1);
+		accomodation.add(room1);
 
 		periods = new ArrayList<BookingPeriod>();
 
