@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -41,6 +42,13 @@ public class TestAvailability {
 
 		bookings.add(new Booking(accomodation, periods.get(0)));
 	}
+	
+	@After
+	public void destroy() {
+		accomodations = null;
+		periods = null;
+		bookings = null;
+	}
 
 	@Test
 	public void testPeriod() {
@@ -62,10 +70,10 @@ public class TestAvailability {
 		return found;
 	}
 
-	private Accommodation createNewRoom(AccommodationType type, RoomFair fair) {
+	private Accommodation createNewRoom(AccommodationType type, RoomFair roomFair) {
 		Accommodation accomodation = new Accommodation();
 		accomodation.setType(type);
-		accomodation.setFair(fair);
+		accomodation.setFair(roomFair);
 		return accomodation;
 	}
 
@@ -85,12 +93,12 @@ public class TestAvailability {
 	}
 
 	private Date getDate(int year, int month, int day) {
-		Calendar c = Calendar.getInstance();
-		c.set(Calendar.YEAR, year);
-		c.set(Calendar.MONTH, month);
-		c.set(Calendar.DAY_OF_MONTH, day);
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month);
+		calendar.set(Calendar.DAY_OF_MONTH, day);
 
-		return c.getTime();
+		return calendar.getTime();
 	}
 
 }
