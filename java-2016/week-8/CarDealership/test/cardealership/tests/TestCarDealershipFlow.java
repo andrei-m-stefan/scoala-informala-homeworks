@@ -40,16 +40,6 @@ public class TestCarDealershipFlow {
 		carDealership.setBankAccount(carDealershipBankAccount);
 
 		clientAccount = carDealership.getClientAccount(client);
-
-		Car car1 = new Logan("1123", 2016, 4500);
-		Car car2 = new Duster("2345", 2013, 5800);
-		Car car3 = new VWGolf("2456", 2011, 7500);
-
-		carDealership.addCarToStock(car1);
-		carDealership.addCarToStock(car2);
-		carDealership.addCarToStock(car3);
-
-		stock = carDealership.listAllCars();
 	}
 
 	@After
@@ -63,6 +53,16 @@ public class TestCarDealershipFlow {
 
 	@Test
 	public void testSuccesfullCarSellingToClientFlow() {
+		
+		Car car1 = new Logan("1123", 2016, 4500);
+		Car car2 = new Duster("2345", 2013, 5800);
+		Car car3 = new VWGolf("2456", 2011, 7500);
+
+		carDealership.addCarToStock(car1);
+		carDealership.addCarToStock(car2);
+		carDealership.addCarToStock(car3);
+
+		stock = carDealership.listAllCars();
 		try {
 			carDealership.sellCarToClient(car1, client);
 		} catch (CarNotFoundException | NotEnoughFundsException | BankAccountNotFoundException e) {		
@@ -73,6 +73,7 @@ public class TestCarDealershipFlow {
 		assertFalse(carDealership.listAllCars().contains(car1));
 		assertEquals(5500, client.getBankAccount().getBalance(), 0);
 		assertEquals(74500, carDealership.getBankAccount().getBalance(), 0);
-	
+		
 	}
+	
 }
